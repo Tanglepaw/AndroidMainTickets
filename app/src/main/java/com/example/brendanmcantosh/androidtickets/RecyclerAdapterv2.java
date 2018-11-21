@@ -5,24 +5,25 @@ This file is for the layout of the recycler view that will be holding the ticket
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>
+public class RecyclerAdapterv2 extends RecyclerView.Adapter<RecyclerAdapterv2.MyViewHolder>
 {
 
     private List<String> list;
 
-    public RecyclerAdapter (List<String> list)
+    public RecyclerAdapterv2 (List<String> list)
     {
         this.list = list;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int i) {
-        TextView textView = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.text_view_layout3,parent,false);
-        MyViewHolder myViewHolder = new MyViewHolder(textView);
+        RelativeLayout textview = (RelativeLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.relative_layout,parent,false);
+        MyViewHolder myViewHolder = new MyViewHolder(textview);
 
 
         return myViewHolder;
