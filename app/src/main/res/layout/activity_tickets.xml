@@ -34,13 +34,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Equipment ID:"
+        android:text="Equipment ID"
         android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/EquipmentIdEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -48,7 +48,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="Enter ID"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|number"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -67,13 +67,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/ReasonEntry"
         android:layout_width="188dp"
         android:layout_height="49dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Insert Reason"
+        android:hint="Text"
         android:inputType="textPersonName"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget"
         app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="176dp"
-        android:text="Submit"
+        android:text="submit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,7 +104,7 @@
         android:id="@+id/TicketIDCollumn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="284dp"
         android:text="Ticket ID"
@@ -118,29 +118,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="167dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="295dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="8dp"
         android:text="View Full Ticket"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TicketIDCollumn" />
+        app:layout_constraintTop_toBottomOf="@+id/TicketViewer"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/TicketIdEntry"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="60dp"
         android:ems="10"
         android:hint="Enter Ticket ID"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintStart_toEndOf="@+id/ViewTicketButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:inputType="textPersonName|number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ViewTicketButton" />
 
     <TextView
         android:id="@+id/WorksiteCollumn"
@@ -152,7 +154,7 @@
         android:text="Worksite"
         app:layout_constraintEnd_toStartOf="@+id/PriorithyCollumn"
         app:layout_constraintStart_toEndOf="@+id/TicketIDCollumn"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/ReasonEntry" />
 
     <TextView
         android:id="@+id/PriorithyCollumn"
@@ -164,7 +166,7 @@
         android:text="Priority"
         app:layout_constraintEnd_toStartOf="@+id/StatusCollumn"
         app:layout_constraintStart_toEndOf="@+id/WorksiteCollumn"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/ReasonEntry" />
 
     <TextView
         android:id="@+id/StatusCollumn"
@@ -178,62 +180,20 @@
         app:layout_constraintStart_toEndOf="@+id/PriorithyCollumn"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/Ticket0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="12dp"
-        android:text="Ticket0"
-        app:layout_constraintBottom_toTopOf="@+id/Ticket1"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/TicketViewer"
+        android:layout_width="316dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/TicketIdEntry"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TicketIDCollumn"
-        app:layout_constraintVertical_bias="0.51" />
-
-    <TextView
-        android:id="@+id/Ticket1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="13dp"
-        android:text="Ticket1"
-        app:layout_constraintBottom_toTopOf="@+id/Ticket2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ticket0" />
-
-    <TextView
-        android:id="@+id/Ticket2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="4dp"
-        android:text="Ticket2"
-        app:layout_constraintBottom_toTopOf="@+id/Ticket3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ticket1" />
-
-    <TextView
-        android:id="@+id/Ticket3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="19dp"
-        android:text="Tcket3"
-        app:layout_constraintBottom_toTopOf="@+id/ViewTicketButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ticket2" />
+        app:layout_constraintTop_toBottomOf="@+id/WorksiteCollumn"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,12 +1,20 @@
 package com.example.brendanmcantosh.androidtickets;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Tickets extends AppCompatActivity {
 
@@ -32,6 +40,11 @@ public class Tickets extends AppCompatActivity {
         }
     };
 
+    private RecyclerView TicketViewer;
+    private RecyclerView.LayoutManager TicketLayoutManage;
+    private List<String> list;
+    private RecyclerAdapter Adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +59,20 @@ public class Tickets extends AppCompatActivity {
 
         // Initialize Vew Ticket Button
         Button ViewFullTicket = (Button)findViewById(R.id.ViewTicketButton);
+
+        //Initializing the recycler view and giving it a layout
+        TicketViewer = findViewById(R.id.TicketViewer);
+        TicketLayoutManage = new LinearLayoutManager(this);
+        TicketViewer.setLayoutManager(TicketLayoutManage);
+        list = Arrays.asList(getResources().getStringArray(R.array.TicketIDs));
+        Adapter = new RecyclerAdapter(list);
+        TicketViewer.setHasFixedSize(true);
+        TicketViewer.setAdapter(Adapter);
+
+
+
+
+
     }
 
 }
