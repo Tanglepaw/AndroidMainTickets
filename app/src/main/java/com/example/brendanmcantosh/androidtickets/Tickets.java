@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.sql.SQLData;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +45,7 @@ public class Tickets extends AppCompatActivity {
             return false;
         }
     };
-
+    // Arrays that hold the ticket data
     private ArrayList<String> mTicketID = new ArrayList<>();
     private ArrayList<String> mWorksite = new ArrayList<>();
     private ArrayList<String> mPriority = new ArrayList<>();
@@ -68,6 +70,7 @@ public class Tickets extends AppCompatActivity {
         AddTicketInfo();
 
         initRecyclerView();
+
     }
 
     private void initRecyclerView (){
@@ -83,6 +86,12 @@ public class Tickets extends AppCompatActivity {
         mStatus.add("on");
         mPriority.add("low");
         mWorksite.add("Joes");
+
+    }
+
+    public void viewTicket (View view){
+
+
 
     }
 
