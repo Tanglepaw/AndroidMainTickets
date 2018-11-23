@@ -1,5 +1,6 @@
 package com.example.brendanmcantosh.androidtickets;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,9 +11,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,10 +44,11 @@ public class Tickets extends AppCompatActivity {
         }
     };
 
-    private RecyclerView TicketViewer;
-    private RecyclerView.LayoutManager TicketLayoutManage;
-    private List<String> list;
-    private RecyclerAdapter Adapter;
+    private ArrayList<String> mTicketID = new ArrayList<>();
+    private ArrayList<String> mWorksite = new ArrayList<>();
+    private ArrayList<String> mPriority = new ArrayList<>();
+    private ArrayList<String> mStatus = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +65,14 @@ public class Tickets extends AppCompatActivity {
         // Initialize Vew Ticket Button
         Button ViewFullTicket = (Button)findViewById(R.id.ViewTicketButton);
 
-        //Initializing the recycler view and giving it a layout
-        TicketViewer = findViewById(R.id.TicketViewer);
-        TicketLayoutManage = new LinearLayoutManager(this);
-        TicketViewer.setLayoutManager(TicketLayoutManage);
-        list = Arrays.asList(getResources().getStringArray(R.array.TicketIDs));
-        Adapter = new RecyclerAdapter(list);
-        TicketViewer.setHasFixedSize(true);
-        TicketViewer.setAdapter(Adapter);
+        initRecyclerView();
+    }
 
-
-
-
+    private void initRecyclerView (){
+        RecyclerView TicketViewer = findViewById(R.id.TicketViewer);
+        RelativeRecyclerAdapter adapter = new RelativeRecyclerAdapter(mTicketID, mWorksite, mPriority, mStatus);
+        TicketViewer.setAdapter(adapter);
+        TicketViewer.setLayoutManager(new LinearLayoutManager(this ));
 
     }
 

@@ -4,42 +4,42 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/rWorksite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="113dp"
         android:layout_marginTop="27dp"
-        android:text="TextView" />
+        android:text="Worksite" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/rPriority"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="206dp"
         android:layout_marginTop="27dp"
-        android:text="TextView" />
+        android:text="Priority" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/rStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="289dp"
         android:layout_marginTop="27dp"
-        android:text="TextView" />
+        android:text="Status" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/rTicketID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="22dp"
         android:layout_marginTop="27dp"
-        android:text="TextView" />
+        android:text="TicketID" />
 </RelativeLayout>
