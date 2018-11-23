@@ -65,6 +65,8 @@ public class Tickets extends AppCompatActivity {
         // Initialize Vew Ticket Button
         Button ViewFullTicket = (Button)findViewById(R.id.ViewTicketButton);
 
+        AddTicketInfo();
+
         initRecyclerView();
     }
 
@@ -73,6 +75,14 @@ public class Tickets extends AppCompatActivity {
         RelativeRecyclerAdapter adapter = new RelativeRecyclerAdapter(mTicketID, mWorksite, mPriority, mStatus);
         TicketViewer.setAdapter(adapter);
         TicketViewer.setLayoutManager(new LinearLayoutManager(this ));
+
+    }
+
+    private void AddTicketInfo (){
+        mTicketID.add("Ticket 1");
+        mStatus.add("on");
+        mPriority.add("low");
+        mWorksite.add("Joes");
 
     }
 
