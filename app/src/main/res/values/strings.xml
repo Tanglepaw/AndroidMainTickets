@@ -3,4 +3,17 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    // Insert items to go into ticket Id list
+    <string-array name="TicketIDs">
+
+    </string-array>
+    <string-array name="Worksite">
+
+    </string-array>
+    <string-array name="Priority">
+
+    </string-array>
+    <string-array name="Status">
+
+    </string-array>
 </resources>
