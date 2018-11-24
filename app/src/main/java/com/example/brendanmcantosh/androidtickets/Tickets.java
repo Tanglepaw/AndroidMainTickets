@@ -92,7 +92,6 @@ public class Tickets extends AppCompatActivity {
     public void viewTicket (View view){
 
 
-
     }
 
 }
