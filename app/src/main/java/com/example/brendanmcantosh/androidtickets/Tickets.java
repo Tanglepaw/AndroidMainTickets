@@ -81,15 +81,9 @@ public class Tickets extends AppCompatActivity {
 
     private void AddTicketInfo (){
         // THIS IS WHERE YOU NEED TO PUT THE GETTER
-        String fwid = "3";
+        String FWid = "11"; // FWid will need to be changed to accept input from login
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute("TicketStart", fwid);
-
-    }
-
-
-    public void viewTicket (View view){
-
+        backgroundWorker.execute("TicketStart", FWid);
 
     }
 
