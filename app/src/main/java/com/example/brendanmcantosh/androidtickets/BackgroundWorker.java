@@ -81,14 +81,14 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         }
         else if (type.equals("TicketStart")){
             try{
-                String fwid = params[1];
+                String FWid = params[1];
                 URL url = new URL(TicketStart_URL);
                 URLConnection conn = url.openConnection();
                 conn.setDoOutput(true);
                 conn.setDoInput(true);
                 OutputStream outputStream = conn.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8" ));
-                String post_data = URLEncoder.encode("fwid", "UTF-8") + "=" + URLEncoder.encode(fwid, "UTF-8");
+                String post_data = URLEncoder.encode("FWid", "UTF-8") + "=" + URLEncoder.encode(FWid, "UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
