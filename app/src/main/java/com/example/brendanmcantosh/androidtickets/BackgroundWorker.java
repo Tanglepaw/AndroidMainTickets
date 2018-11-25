@@ -102,7 +102,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 }
 
                 JSONObject JO = new JSONObject(result);
-                JSONArray jTickets = JO.getJSONArray("Tickets");
+                JSONArray jTickets = JO.getJSONArray("Tickets");// Array name from php file
 
                 for(int i =0; i<jTickets.length(); i++){
                     JSONObject t = jTickets.getJSONObject(i);

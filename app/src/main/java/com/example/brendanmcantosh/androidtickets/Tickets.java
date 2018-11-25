@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,9 +48,6 @@ public class Tickets extends AppCompatActivity {
         }
     };
     // Arrays that hold the ticket data
-    //private ArrayList<String> mTicketID = new ArrayList<>();
-    //private ArrayList<String> mWorksite = new ArrayList<>();
-    //private ArrayList<String> mPriority = new ArrayList<>();
     public static ArrayList<String> mTicketID = new ArrayList<>();
     public static ArrayList<String> mWorksite = new ArrayList<>();
     public static ArrayList<String> mPriority = new ArrayList<>();
@@ -63,11 +61,9 @@ public class Tickets extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        // Initialize Submit Maintenance Button
-        Button SubmitMaintenanceBtn = (Button)findViewById(R.id.MaintenanceSubmit);
-
         // Initialize Vew Ticket Button Will pass ticket ID to View full ticket module
         Button ViewFullTicket = (Button)findViewById(R.id.ViewTicketButton);
+
 
         AddTicketInfo();
 

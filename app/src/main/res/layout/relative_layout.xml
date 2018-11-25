@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="154dp"
+        android:layout_marginStart="116dp"
         android:layout_marginTop="21dp"
         android:text="Worksite" />
 
@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="310dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="291dp"
+        android:layout_marginTop="21dp"
         android:text="Priority" />
 
     <TextView
