@@ -16,13 +16,12 @@ public class RelativeRecyclerAdapter extends RecyclerView.Adapter<RelativeRecycl
     private ArrayList<String> mTicketID = new ArrayList<>();
     private ArrayList<String> mWorksite = new ArrayList<>();
     private ArrayList<String> mPriority = new ArrayList<>();
-    private ArrayList<String> mStatus = new ArrayList<>();
 
-    public RelativeRecyclerAdapter(ArrayList<String> TicketIDs, ArrayList<String> Worksites, ArrayList<String> Prioritys, ArrayList<String> Status) {
+    public RelativeRecyclerAdapter(ArrayList<String> TicketIDs, ArrayList<String> Worksites, ArrayList<String> Prioritys) {
         mTicketID = TicketIDs;
         mWorksite = Worksites;
         mPriority = Prioritys;
-        mStatus = Status;
+
     }
 
 
@@ -39,7 +38,7 @@ public class RelativeRecyclerAdapter extends RecyclerView.Adapter<RelativeRecycl
         holder.TicketID.setText(mTicketID.get(i));
         holder.Worksite.setText(mWorksite.get(i));
         holder.Priority.setText(mPriority.get(i));
-        holder.Status.setText(mStatus.get(i));
+
 
     }
 
@@ -53,14 +52,14 @@ public class RelativeRecyclerAdapter extends RecyclerView.Adapter<RelativeRecycl
         TextView TicketID;
         TextView Worksite;
         TextView Priority;
-        TextView Status;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             TicketID = itemView.findViewById(R.id.rTicketID);
             Worksite = itemView.findViewById(R.id.rWorksite);
             Priority = itemView.findViewById(R.id.rPriority);
-            Status = itemView.findViewById(R.id.rStatus);
+
         }
     }
 
