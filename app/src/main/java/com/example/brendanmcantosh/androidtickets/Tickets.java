@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.sql.SQLData;
@@ -46,25 +47,26 @@ public class Tickets extends AppCompatActivity {
         }
     };
     // Arrays that hold the ticket data
-    private ArrayList<String> mTicketID = new ArrayList<>();
-    private ArrayList<String> mWorksite = new ArrayList<>();
-    private ArrayList<String> mPriority = new ArrayList<>();
-    private ArrayList<String> mStatus = new ArrayList<>();
-
+    //private ArrayList<String> mTicketID = new ArrayList<>();
+    //private ArrayList<String> mWorksite = new ArrayList<>();
+    //private ArrayList<String> mPriority = new ArrayList<>();
+    public static ArrayList<String> mTicketID = new ArrayList<>();
+    public static ArrayList<String> mWorksite = new ArrayList<>();
+    public static ArrayList<String> mPriority = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tickets);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         // Initialize Submit Maintenance Button
         Button SubmitMaintenanceBtn = (Button)findViewById(R.id.MaintenanceSubmit);
 
-        // Initialize Vew Ticket Button
+        // Initialize Vew Ticket Button Will pass ticket ID to View full ticket module
         Button ViewFullTicket = (Button)findViewById(R.id.ViewTicketButton);
 
         AddTicketInfo();
@@ -75,19 +77,20 @@ public class Tickets extends AppCompatActivity {
 
     private void initRecyclerView (){
         RecyclerView TicketViewer = findViewById(R.id.TicketViewer);
-        RelativeRecyclerAdapter adapter = new RelativeRecyclerAdapter(mTicketID, mWorksite, mPriority, mStatus);
+        RelativeRecyclerAdapter adapter = new RelativeRecyclerAdapter(mTicketID, mWorksite, mPriority);
         TicketViewer.setAdapter(adapter);
         TicketViewer.setLayoutManager(new LinearLayoutManager(this ));
 
     }
 
     private void AddTicketInfo (){
-        mTicketID.add("Ticket 1");
-        mStatus.add("on");
-        mPriority.add("low");
-        mWorksite.add("Joes");
+        // THIS IS WHERE YOU NEED TO PUT THE GETTER
+        String fwid = "3";
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute("TicketStart", fwid);
 
     }
+
 
     public void viewTicket (View view){
 

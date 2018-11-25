@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/rWorksite"
@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="113dp"
+        android:layout_marginStart="154dp"
         android:layout_marginTop="21dp"
         android:text="Worksite" />
 
@@ -19,19 +19,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="226dp"
+        android:layout_marginStart="310dp"
         android:layout_marginTop="20dp"
         android:text="Priority" />
-
-    <TextView
-        android:id="@+id/rStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="326dp"
-        android:layout_marginTop="19dp"
-        android:text="Status" />
 
     <TextView
         android:id="@+id/rTicketID"
@@ -39,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
         android:text="TicketID" />
 </RelativeLayout>

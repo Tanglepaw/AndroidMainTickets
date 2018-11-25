@@ -4,7 +4,12 @@ package com.example.brendanmcantosh.androidtickets;
 import android.content.Context;
 import android.icu.util.Output;
 import android.os.AsyncTask;
+import android.provider.Settings;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,12 +23,14 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.Buffer;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     private TextView textView;
     Context context;
-
 
     BackgroundWorker (Context ctx) {
         context = ctx;
@@ -34,8 +41,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
         String type = params[0];
         String login_url = "https://tickats.live/login.php";
-        String update_location_url = "https://tickats.live/updatelocation.php";
-        String TicketStart_URL = "https://tickats.live/.php";
+        String TicketStart_URL = "https://tickats.live/DisplayDataTickets.php";
 
 
         if (type.equals("login")) {
@@ -92,7 +98,24 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 String line = "";
                 while ((line = bufferedReader.readLine()) !=null ){
                     result += line;
+
                 }
+
+                JSONObject JO = new JSONObject(result);
+                JSONArray jTickets = JO.getJSONArray("Tickets");
+
+                for(int i =0; i<jTickets.length(); i++){
+                    JSONObject t = jTickets.getJSONObject(i);
+                 // Pulls data from the URL and puts it into a string for later insertion
+                    String Tid  = t.getString("TicketID");
+                    String wName  = t.getString("WorksiteName");
+                    String Prior  = t.getString("Priority");
+                // Adds values from the JSON array into the relative layout
+                    Tickets.mTicketID.add(Tid);
+                    Tickets.mWorksite.add(wName);
+                    Tickets.mPriority.add(Prior);
+                }
+
                 bufferedReader.close();
                 inputStream.close();
                 outputStream.close();
@@ -105,21 +128,14 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             catch (IOException e){
                 e.printStackTrace();
             }
+            catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-
-        if(type.equals("update")){
-
-        }
-
-        if (type.equals("viewAllMyTickets")){
-
-        }
-
-        if (type.equals("view")){
-
-        }
         return null;
     }
+
+
 
 }
